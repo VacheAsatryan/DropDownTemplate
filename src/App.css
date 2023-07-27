@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+  width: 100%;
+  max-width: 1366px;
+  height: 100vh;
+  max-height: 768px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
