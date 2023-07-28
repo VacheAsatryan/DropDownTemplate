@@ -1,8 +1,9 @@
 .App {
-  width: 1366px;
+  width: 100%;
+  min-width: 1366;
   height: 768px;
+  position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+ 
 }

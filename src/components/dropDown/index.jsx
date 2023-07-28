@@ -5,6 +5,7 @@ const SelectableItems = () => {
   const [data, setData] = useState([]);
   const [checkedItems, setCheckedItems] = useState({});
   const [searchText, setSearchText] = useState('');
+  const [drop, setDrop] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,19 +43,22 @@ const SelectableItems = () => {
   const selectedItems = filteredData.filter((item) => checkedItems[item.id]);
 
   return (
-    <>
+    <div className='selectable'>
       <div className="selectedItems">
         <span>Names</span>
-        <div className='checkedItems'>
-          {selectedItems.map((item) => (
-            <div key={item.id} className='checkedItem'>
-              {item.name}
-              <button className='deleteBtn' onClick={() => handleDelete(item.id)}>x</button>
-            </div>
-          ))}
+        <div className="cont">
+          <div className='checkedItems'>
+            {selectedItems.map((item) => (
+              <div key={item.id} className='checkedItem'>
+                {item.name}
+                <button className='deleteBtn' onClick={() => handleDelete(item.id)}>x</button>
+              </div>
+            ))}
+          </div>
+              <button className='drop' onClick={()=> setDrop(!drop)}>{drop ? ">" :' <'}</button>
         </div>
       </div>
-      <div className='dropDown'>
+        { drop &&      <div className='dropDown'>
         <input
           type="text"
           className='search'
@@ -76,8 +80,8 @@ const SelectableItems = () => {
             />
           </div>
         ))}
-      </div>
-    </>
+      </div>}
+    </div>
   );
 };
 
